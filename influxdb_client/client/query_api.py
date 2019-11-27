@@ -2,7 +2,11 @@ import codecs
 import csv
 from typing import List, Generator, Any
 
-from pandas import DataFrame
+from builtins import ImportError
+try:
+    from pandas import DataFrame
+except ImportError, e:
+    pass
 
 from influxdb_client import Dialect
 from influxdb_client import Query, QueryService

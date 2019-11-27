@@ -5,7 +5,13 @@ from enum import Enum
 from typing import List
 
 import ciso8601
-from pandas import DataFrame
+
+from builtins import ImportError
+try:
+    from pandas import DataFrame
+except ImportError, e:
+    pass
+
 from urllib3 import HTTPResponse
 
 from influxdb_client.client.flux_table import FluxTable, FluxColumn, FluxRecord
